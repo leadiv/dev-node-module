@@ -43,5 +43,5 @@ if [ -d ${PACKAGE}/.${MODULE} ]; then
 else
     echo -e "${INFO} Prepping ${PACKAGE} for ${MODULE}"
     mv ${PACKAGE}/${MODULE} ${PACKAGE}/.${MODULE}
-    cp -r ${PREFIX}-${MODULE} ${PACKAGE}/${MODULE}
+    rsync -av ${PREFIX}-${MODULE} ${PACKAGE}/${MODULE} --exclude .git
 fi
